@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MobihomeKTPM01 - Khai phá sức mạnh dữ liệu. Thúc đẩy tăng trưởng bằng AI.">
+    <title>MobihomeKTPM01 | Đăng ký</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo text-white">
+                <span class="logo-text aurum-logo">MobihomeKTPM01</span>
+            </a>
+            <button id="shareBtn" class="btn btn-glass-outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+                Chia sẻ
+            </button>
+        </div>
+    </header>
+
+    <!-- Toast Notification for Copy Link -->
+    <div id="toast" class="toast">Đã sao chép đường dẫn!</div>
+
+    <!-- Booking Section -->
+    <section id="booking-section" class="booking-section" style="padding-top: 120px;">
+        <div class="container">
+            <div class="booking-header">
+                <h2>Đăng Ký Thuê Xe</h2>
+                <p>Điền thông tin của bạn để chúng tôi chuẩn bị cho chuyến đi tuyệt vời nhất.</p>
+            </div>
+
+            <div class="booking-card">
+                <form id="bookingForm" class="booking-form" novalidate>
+                    <!-- Thông tin khách hàng -->
+                    <div class="form-group-section">
+                        <h3><span class="section-icon">👤</span> Thông tin khách hàng</h3>
+                        <div class="form-grid">
+                            <div class="form-control">
+                                <label for="fullName">Họ và tên <span class="required">*</span></label>
+                                <input type="text" id="fullName" name="fullName" placeholder="VD: Nguyễn Văn A"
+                                    required>
+                                <div class="error-message">Vui lòng nhập họ và tên</div>
+                            </div>
+
+                            <div class="form-control">
+                                <label for="age">Tuổi <span class="required">*</span></label>
+                                <input type="number" id="age" name="age" min="18" placeholder=">= 18" required>
+                                <div class="error-message">Bạn phải từ 18 tuổi trở lên</div>
+                            </div>
+
+                            <div class="form-control">
+                                <label for="phone">Số điện thoại <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" pattern="[0-9]{10,11}"
+                                    placeholder="VD: 0912345678" required>
+                                <div class="error-message">Vui lòng nhập số điện thoại hợp lệ</div>
+                            </div>
+
+                            <div class="form-control">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                                <div class="error-message">Vui lòng nhập email hợp lệ</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lịch trình -->
+                    <div class="form-group-section">
+                        <h3><span class="section-icon">📅</span> Lịch trình</h3>
+                        <div class="form-grid">
+                            <div class="form-control">
+                                <label for="pickupDate">Thời gian nhận xe <span class="required">*</span></label>
+                                <input type="datetime-local" id="pickupDate" name="pickupDate" required>
+                                <div class="error-message">Vui lòng chọn thời gian nhận xe</div>
+                            </div>
+
+                            <div class="form-control">
+                                <label for="returnDate">Thời gian trả xe <span class="required">*</span></label>
+                                <input type="datetime-local" id="returnDate" name="returnDate" required>
+                                <div class="error-message">Vui lòng chọn thời gian trả xe hợp lệ</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lựa chọn phương tiện -->
+                    <div class="form-group-section">
+                        <h3><span class="section-icon">🚐</span> Lựa chọn phương tiện</h3>
+                        <div class="form-grid">
+                            <div class="form-control">
+                                <label for="vehicleType">Loại xe <span class="required">*</span></label>
+                                <div class="select-wrapper">
+                                    <select id="vehicleType" name="vehicleType" required>
+                                        <option value="" disabled selected>Chọn loại xe</option>
+                                        <option value="2-seats">Xe 2 chỗ (Cặp đôi)</option>
+                                        <option value="4-seats">Xe 4 chỗ (Nhóm nhỏ)</option>
+                                        <option value="family">Xe gia đình (6-8 người)</option>
+                                    </select>
+                                </div>
+                                <div class="error-message">Vui lòng chọn loại xe</div>
+                            </div>
+
+                            <div class="form-control">
+                                <label for="vehicleClass">Kiểu xe <span class="required">*</span></label>
+                                <div class="select-wrapper">
+                                    <select id="vehicleClass" name="vehicleClass" required>
+                                        <option value="" disabled selected>Chọn kiểu xe</option>
+                                        <option value="standard">Tiêu chuẩn</option>
+                                        <option value="premium">Cao cấp (Full Option)</option>
+                                    </select>
+                                </div>
+                                <div class="error-message">Vui lòng chọn kiểu xe</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tùy chọn dịch vụ & Thanh toán -->
+                    <div class="form-group-section">
+                        <h3><span class="section-icon">⚙️</span> Tùy chọn & Thanh toán</h3>
+
+                        <div class="form-control radio-group-container">
+                            <label class="group-label">Hình thức lái <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="driveOption" value="self-drive" checked>
+                                    <span class="radio-custom"></span>
+                                    Tự lái
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="driveOption" value="driver">
+                                    <span class="radio-custom"></span>
+                                    Yêu cầu tài xế
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-control">
+                            <label for="paymentMethod">Phương thức thanh toán <span class="required">*</span></label>
+                            <div class="select-wrapper">
+                                <select id="paymentMethod" name="paymentMethod" required>
+                                    <option value="" disabled selected>Chọn phương thức thanh toán</option>
+                                    <option value="cash">Tiền mặt</option>
+                                    <option value="transfer">Chuyển khoản ngân hàng</option>
+                                    <option value="credit">Thẻ tín dụng / Ghi nợ</option>
+                                </select>
+                            </div>
+                            <div class="error-message">Vui lòng chọn phương thức thanh toán</div>
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            Xác nhận đặt xe
+                        </button>
+                    </div>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <div class="success-icon">✓</div>
+                    <h3>Đặt xe thành công!</h3>
+                    <p>Cảm ơn bạn đã lựa chọn Mobihome KTPM Nhóm 1. Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm
+                        nhất để xác nhận chuyến đi.</p>
+                    <button id="resetBtn" class="btn btn-outline mt-4">Đặt chuyến đi khác</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 MobihomeKTPM01. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
